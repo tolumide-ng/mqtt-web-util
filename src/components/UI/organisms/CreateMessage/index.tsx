@@ -9,12 +9,12 @@ import styles from "./index.module.css";
 
 type MessagesProps = {
     onPublishMessage: (props: Message) => void;
-    connectionStatus: Status;
+    isConnected: boolean;
 };
 
 export const CreateMessage = ({
     onPublishMessage,
-    connectionStatus,
+    isConnected,
 }: MessagesProps) => {
     const [state, setState] = React.useState<Message>({
         topic: "",
@@ -56,7 +56,7 @@ export const CreateMessage = ({
                     value={state.topic}
                     inputClassName={styles.inputTopic}
                     placeholder="Topic"
-                    disabled={connectionStatus !== Status.Success}
+                    disabled={!isConnected}
                 />
 
                 <SelectOption
@@ -65,7 +65,7 @@ export const CreateMessage = ({
                     onChange={handleChange}
                     options={[0, 1, 2]}
                     value={state.qos}
-                    disabled={connectionStatus !== Status.Success}
+                    disabled={!isConnected}
                 />
 
                 <TextArea
@@ -73,13 +73,13 @@ export const CreateMessage = ({
                     value={state.message}
                     className={styles.inputMessage}
                     onChange={handleChange}
-                    disabled={connectionStatus !== Status.Success}
+                    disabled={!isConnected}
                 />
 
                 <Button
                     type="submit"
                     text="Publish Message"
-                    disabled={connectionStatus !== Status.Success}
+                    disabled={!isConnected}
                 />
             </form>
         </section>

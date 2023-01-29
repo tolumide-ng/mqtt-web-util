@@ -35,6 +35,7 @@ export const TextArea = ({
             disabled={disabled}
             placeholder={placeholder}
             required={required}
+            aria-label={name}
         ></textarea>
     );
 };

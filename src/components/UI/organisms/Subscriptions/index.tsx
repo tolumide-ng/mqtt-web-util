@@ -1,47 +1,72 @@
+import { QoS } from "precompiled-mqtt";
 import * as React from "react";
-import { Status, Topic } from "../../../../types";
+import { Topic } from "../../../../types";
 import { Button } from "../../atoms/Button";
 import { Input } from "../../atoms/Input";
+import { SelectOption } from "../../atoms/SelectOption";
 import { SubscribeRow } from "../../atoms/SubscribeRow";
 import styles from "./index.module.css";
 
 export type SubscriptionsProps = {
     topics: Array<Topic>;
-    onSubscribe: (topic: string) => void;
-    connectionStatus: Status;
+    onSubscribe: (topic: string, qos: QoS) => void;
+    isConnected: boolean;
 };
 
 export const Subscriptions = ({
     topics,
     onSubscribe,
-    connectionStatus,
+    isConnected,
 }: SubscriptionsProps) => {
-    const [topic, setTopic] = React.useState("");
+    const [state, setState] = React.useState<Topic>({
+        topic: "",
+        qos: 0,
+    });
 
-    const onSubmit = (e: React.FormEvent) => {
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+    ) => {
+        const { name, value } = e.target;
+        setState((state) => ({ ...state, [name]: value }));
+    };
+
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        onSubscribe(topic);
-        setTopic("");
+        onSubscribe(state.topic, Number(state.qos) as QoS);
+        setState({ topic: "", qos: 0 });
     };
 
     return (
         <section className={styles.subscriptions}>
             <h3 className={styles.subscriptionsTitle}>Subscriptions</h3>
 
-            <form className={styles.subscriptionContent} onSubmit={onSubmit}>
-                <Input
-                    name="subscriptions"
-                    inputType="text"
-                    value={topic}
-                    onChange={(e) => setTopic(e.target.value)}
-                    inputClassName={styles.subscriptionOptions}
-                    disabled={connectionStatus !== Status.Success}
-                />
+            <form
+                className={styles.subscriptionContent}
+                onSubmit={handleSubmit}
+            >
+                <div className={styles.subscriptionOptions}>
+                    <Input
+                        name="topic"
+                        inputType="text"
+                        value={state.topic}
+                        onChange={handleChange}
+                        inputClassName={styles.subscriptionTopic}
+                        disabled={!isConnected}
+                    />
+                    <SelectOption
+                        name="qos"
+                        options={[0, 1, 2]}
+                        onChange={handleChange}
+                        value={state.qos}
+                        className={styles.subscriptionQos}
+                        disabled={!isConnected}
+                    />
+                </div>
 
                 <Button
                     text="Subscribe"
                     type="submit"
-                    disabled={connectionStatus !== Status.Success}
+                    disabled={!isConnected}
                 />
             </form>
 

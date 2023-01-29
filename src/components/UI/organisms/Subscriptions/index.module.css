@@ -12,3 +12,14 @@
 .subscriptionsTitle {
     margin-bottom: var(--heading-mb);
 }
+
+.subscriptionOptions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.subscriptionTopic,
+.subscriptionQos {
+    width: calc(calc(100% - 30px) / 2);
+}

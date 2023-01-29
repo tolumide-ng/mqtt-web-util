@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Status } from "../../../types";
 import { Connection } from "../../UI/organisms/Connection";
 import { CreateMessage } from "../../UI/organisms/CreateMessage";
 import { Messages } from "../../UI/organisms/Messages";
@@ -13,6 +14,8 @@ export const HomePage = () => {
         onSubscribe,
         onPublishMessage,
     } = useHome();
+
+    const isConnected = connectionStatus === Status.Success;
 
     return (
         <main className={styles.home}>
@@ -29,7 +32,7 @@ export const HomePage = () => {
                     <div>
                         <CreateMessage
                             onPublishMessage={onPublishMessage}
-                            connectionStatus={connectionStatus}
+                            isConnected={isConnected}
                         />
                     </div>
                 </div>
@@ -39,7 +42,7 @@ export const HomePage = () => {
                         <Subscriptions
                             onSubscribe={onSubscribe}
                             topics={topics}
-                            connectionStatus={connectionStatus}
+                            isConnected={isConnected}
                         />
                     </div>
                     <div>

@@ -1,8 +1,14 @@
-import mqtt, { MqttClient } from "precompiled-mqtt";
+import mqtt, {
+    ISubscriptionGrant,
+    ISubscriptionMap,
+    MqttClient,
+    QoS,
+} from "precompiled-mqtt";
 import {
     Message,
     MQTTClientProps,
     Status,
+    Topic,
     UpdateHandle,
     UpdateTopic,
 } from "../types";
@@ -10,7 +16,7 @@ import {
 // Facade pattern
 export class MQTTClient {
     client: MqttClient | null = null;
-    #topics: Array<string> = [];
+    #topics: Array<Topic> = [];
     #messages: Array<Message> = [];
     #connectionStatus = Status.Rest;
 
@@ -75,12 +81,12 @@ export class MQTTClient {
         this.client?.publish(topic, message, { qos });
     }
 
-    subscribe(topic: string, update: UpdateTopic) {
-        this.#topics.push(topic);
+    subscribe(topic: string, qos: QoS, update: UpdateTopic) {
+        this.#topics.push({ topic, qos });
 
-        this.client?.subscribe(this.#topics, (err, grant) => {
+        this.client?.subscribe({ [topic]: { qos } }, (err) => {
             if (!err) {
-                update(grant);
+                update(this.#topics);
             }
         });
     }

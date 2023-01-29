@@ -36,7 +36,7 @@ export const Connection = ({
         [],
     );
 
-    const onSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (isConnected) {
             setState({ hostname: "", username: "", password: "" });
@@ -66,7 +66,7 @@ export const Connection = ({
     ];
 
     return (
-        <form onSubmit={onSubmit} className={styles.connection}>
+        <form onSubmit={handleSubmit} className={styles.connection}>
             <h3 className={styles.connectionTitle}>Connection</h3>
 
             <div className={styles.connectionContent}>

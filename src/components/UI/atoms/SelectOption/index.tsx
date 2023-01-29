@@ -25,6 +25,7 @@ export const SelectOption = ({
             onChange={onChange}
             aria-label={name}
             disabled={disabled}
+            value={value}
         >
             {options.map((current) => (
                 <option value={current} key={current}>

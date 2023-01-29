@@ -1,3 +1,4 @@
+import { QoS } from "precompiled-mqtt";
 import * as React from "react";
 import { ConnectProps, Message, Status, Topic } from "../../../types";
 import { MQTTClient } from "../../../utils/mqttClient";
@@ -35,8 +36,16 @@ export const useHome = () => {
         }
     }, []);
 
-    const onSubscribe = (topic: string) => {
-        client.current?.subscribe(topic, (topics) => {
+    const onSubscribe = (topic: string, qos: QoS) => {
+        const currentSubscriptions = appState.topics.map(
+            (s) => `${s.topic}-${s.qos}`,
+        );
+
+        if (currentSubscriptions.includes(`${topic}-${qos}`)) {
+            return;
+        }
+
+        client.current?.subscribe(topic, qos, (topics) => {
             setAppState((state) => ({ ...state, topics }));
         });
     };
