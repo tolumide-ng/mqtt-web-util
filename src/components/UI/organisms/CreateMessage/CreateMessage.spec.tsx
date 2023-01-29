@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import UserEvent from "@testing-library/user-event";
-import { CreateMessage } from ".";
+import { CreateMessage } from "./CreateMessage";
 
 describe("Messages", () => {
     const getProps = ({

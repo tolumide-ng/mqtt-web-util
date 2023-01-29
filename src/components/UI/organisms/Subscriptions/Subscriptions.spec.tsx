@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import UserEvent from "@testing-library/user-event";
-import { Subscriptions, SubscriptionsProps } from ".";
+import { Subscriptions, SubscriptionsProps } from "./Subscriptions";
 import { Topic } from "../../../../types";
 
 describe("Subscriptions", () => {

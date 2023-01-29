@@ -1,7 +1,7 @@
 import React from "react";
 import UserEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
-import { TextArea } from ".";
+import { TextArea } from "./TextArea";
 
 describe("TextArea", () => {
     const getProps = ({ onChange = jest.fn(), disabled = false }) => ({

@@ -1,5 +1,5 @@
 import * as React from "react";
-import styles from "./index.module.css";
+import styles from "./Button.module.css";
 
 export type ButtonType = "submit" | "reset" | "button";
 

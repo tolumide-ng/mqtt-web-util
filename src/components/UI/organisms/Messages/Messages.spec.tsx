@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Messages } from ".";
+import { Messages } from "./Messages";
 import { Message, Status } from "../../../../types";
 
 describe("Messages", () => {

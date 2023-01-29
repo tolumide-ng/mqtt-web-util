@@ -1,11 +1,11 @@
 import { QoS } from "precompiled-mqtt";
 import * as React from "react";
 import { Topic } from "../../../../types";
-import { Button } from "../../atoms/Button";
-import { Input } from "../../atoms/Input";
-import { SelectOption } from "../../atoms/SelectOption";
-import { SubscribeRow } from "../../atoms/SubscribeRow";
-import styles from "./index.module.css";
+import { Button } from "../../atoms/Button/Button";
+import { Input } from "../../atoms/Input/Input";
+import { SelectOption } from "../../atoms/SelectOption/SelectOption";
+import { SubscribeRow } from "../../atoms/SubscribeRow/SubscribeRow";
+import styles from "./Subscriptions.module.css";
 
 export type SubscriptionsProps = {
     topics: Array<Topic>;

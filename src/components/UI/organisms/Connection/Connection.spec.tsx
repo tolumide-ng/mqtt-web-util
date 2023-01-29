@@ -2,7 +2,7 @@ import React from "react";
 import UserEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
 import { Status } from "../../../../types";
-import { Connection } from ".";
+import { Connection } from "./Connection";
 
 describe("Connection", () => {
     const getProps = ({

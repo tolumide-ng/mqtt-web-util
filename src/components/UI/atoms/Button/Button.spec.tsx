@@ -1,7 +1,7 @@
 import * as React from "react";
 import UserEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
-import { Button, ButtonType } from ".";
+import { Button, ButtonType } from "./Button";
 
 describe("Button", () => {
     const getProps = ({ onClick = jest.fn(), disabled = false }) => ({

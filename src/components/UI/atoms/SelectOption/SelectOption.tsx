@@ -1,5 +1,5 @@
 import * as React from "react";
-import styles from "./index.module.css";
+import styles from "./SelectOption.module.css";
 
 type SelectOptionProps = {
     onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;

@@ -1,11 +1,11 @@
 import { QoS } from "precompiled-mqtt";
 import * as React from "react";
-import { Message, Status } from "../../../../types";
-import { Button } from "../../atoms/Button";
-import { Input } from "../../atoms/Input";
-import { SelectOption } from "../../atoms/SelectOption";
-import { TextArea } from "../../atoms/TextArea";
-import styles from "./index.module.css";
+import { Message } from "../../../../types";
+import { Button } from "../../atoms/Button/Button";
+import { Input } from "../../atoms/Input/Input";
+import { SelectOption } from "../../atoms/SelectOption/SelectOption";
+import { TextArea } from "../../atoms/TextArea/TextArea";
+import styles from "./CreateMessage.module.css";
 
 type MessagesProps = {
     onPublishMessage: (props: Message) => void;

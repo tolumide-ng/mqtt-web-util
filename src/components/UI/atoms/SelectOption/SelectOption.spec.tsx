@@ -1,6 +1,6 @@
 import React from "react";
 import UserEvent from "@testing-library/user-event";
-import { SelectOption } from ".";
+import { SelectOption } from "./SelectOption";
 import { render, screen } from "@testing-library/react";
 
 describe("SelectOption", () => {

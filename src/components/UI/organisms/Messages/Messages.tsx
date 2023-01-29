@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Message, Status } from "../../../../types";
-import styles from "./index.module.css";
+import styles from "./Messages.module.css";
 
 type MessagesProps = {
     messages: Array<Message>;

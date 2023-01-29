@@ -1,8 +1,8 @@
 import * as React from "react";
 import { ConnectProps, Status } from "../../../../types";
-import { Button } from "../../atoms/Button";
-import { Input } from "../../atoms/Input";
-import styles from "./index.module.css";
+import { Button } from "../../atoms/Button/Button";
+import { Input } from "../../atoms/Input/Input";
+import styles from "./Connection.module.css";
 
 type Option = {
     name: keyof ConnectProps;

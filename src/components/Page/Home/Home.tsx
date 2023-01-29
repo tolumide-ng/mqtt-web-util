@@ -1,10 +1,10 @@
 import * as React from "react";
 import { Status } from "../../../types";
-import { Connection } from "../../UI/organisms/Connection";
-import { CreateMessage } from "../../UI/organisms/CreateMessage";
-import { Messages } from "../../UI/organisms/Messages";
-import { Subscriptions } from "../../UI/organisms/Subscriptions";
-import styles from "./index.module.css";
+import { Connection } from "../../UI/organisms/Connection/Connection";
+import { CreateMessage } from "../../UI/organisms/CreateMessage/CreateMessage";
+import { Messages } from "../../UI/organisms/Messages/Messages";
+import { Subscriptions } from "../../UI/organisms/Subscriptions/Subscriptions";
+import styles from "./Home.module.css";
 import { useHome } from "./useHome";
 
 export const HomePage = () => {

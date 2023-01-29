@@ -1,5 +1,5 @@
 import * as React from "react";
-import styles from "./index.module.css";
+import styles from "./Input.module.css";
 
 type InputProps = {
     inputType: React.HTMLInputTypeAttribute;

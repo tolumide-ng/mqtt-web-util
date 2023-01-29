@@ -1,5 +1,5 @@
 import * as React from "react";
-import styles from "./index.module.css";
+import styles from "./TextArea.module.css";
 
 type TextAreaProps = {
     name: string;
