@@ -1,0 +1,27 @@
+.connection {
+    width: 100%;
+}
+
+.connectionContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.hostname,
+.username,
+.password {
+    margin-bottom: 0.75rem;
+}
+
+.hostname {
+    width: 100%;
+}
+
+.username,
+.password {
+    width: calc(calc(100% - 30px) / 2);
+}
+
+.connectionTitle {
+}

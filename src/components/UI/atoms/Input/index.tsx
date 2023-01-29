@@ -9,6 +9,7 @@ type InputProps = {
     name: string;
     value: string;
     required?: boolean;
+    inputClassName?: string;
 };
 
 export const Input = ({
@@ -19,10 +20,11 @@ export const Input = ({
     value,
     name,
     required = true,
+    inputClassName,
 }: InputProps) => {
     return (
         <input
-            className={styles.input}
+            className={`${styles.input} ${inputClassName}`}
             type={inputType}
             required={required}
             onChange={onChange}
