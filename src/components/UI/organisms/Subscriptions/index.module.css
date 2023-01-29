@@ -1,0 +1,16 @@
+.subscriptions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.subscriptionContent {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.subscriptionOptions {
+    width: 100%;
+    margin-bottom: 0.75rem;
+    height: 1.5rem;
+}
