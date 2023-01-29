@@ -30,7 +30,7 @@ describe("SelectOption", () => {
 
         await user.selectOptions(
             screen.getByRole("combobox"),
-            screen.getByRole("option", { name: "2" }),
+            screen.getByRole("option", { name: "Quality of Service = 2" }),
         );
         expect(mockOnChange).toHaveBeenCalledTimes(1);
     });

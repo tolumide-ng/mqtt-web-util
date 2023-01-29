@@ -39,6 +39,10 @@ export class MQTTClient {
         this.#activateListeners(updateHandle);
     }
 
+    get status(): Status {
+        return this.#connectionStatus;
+    }
+
     #activateListeners(update: UpdateHandle) {
         this.client?.on("connect", (packet) => {
             this.#connectionStatus = Status.Success;

@@ -56,17 +56,16 @@ export const CreateMessage = ({
                     value={state.topic}
                     inputClassName={styles.inputTopic}
                     placeholder="Topic"
+                    disabled={connectionStatus !== Status.Success}
                 />
 
                 <SelectOption
                     name="qos"
                     className={styles.inputService}
                     onChange={handleChange}
-                    // options={[0, 1, 2].map(
-                    //     (value) => `Quality of Service = ${value}`,
-                    // )}
                     options={[0, 1, 2]}
                     value={state.qos}
+                    disabled={connectionStatus !== Status.Success}
                 />
 
                 <TextArea
@@ -74,6 +73,7 @@ export const CreateMessage = ({
                     value={state.message}
                     className={styles.inputMessage}
                     onChange={handleChange}
+                    disabled={connectionStatus !== Status.Success}
                 />
 
                 <Button

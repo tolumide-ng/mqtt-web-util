@@ -1,4 +1,5 @@
 import * as React from "react";
+import styles from "./index.module.css";
 
 type TextAreaProps = {
     name: string;
@@ -30,7 +31,7 @@ export const TextArea = ({
             rows={rows}
             onChange={onChange}
             value={value}
-            className={className}
+            className={`${styles.textArea} ${className}`}
             disabled={disabled}
             placeholder={placeholder}
             required={required}

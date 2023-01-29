@@ -7,6 +7,7 @@ type SelectOptionProps = {
     name: string;
     value: string | number;
     className?: string;
+    disabled?: boolean;
 };
 
 export const SelectOption = ({
@@ -15,6 +16,7 @@ export const SelectOption = ({
     name,
     value,
     className,
+    disabled = false,
 }: SelectOptionProps) => {
     return (
         <select
@@ -22,10 +24,11 @@ export const SelectOption = ({
             className={`${styles.select} ${className}`}
             onChange={onChange}
             aria-label={name}
+            disabled={disabled}
         >
             {options.map((current) => (
                 <option value={current} key={current}>
-                    {current}
+                    Quality of Service = {current}
                 </option>
             ))}
         </select>

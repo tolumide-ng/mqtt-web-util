@@ -9,8 +9,6 @@
     margin-bottom: 2rem;
 }
 
-.subscriptionOptions {
-    width: 100%;
-    margin-bottom: 0.75rem;
-    height: 1.5rem;
+.subscriptionsTitle {
+    margin-bottom: var(--heading-mb);
 }

@@ -1,3 +1,49 @@
+.messageTableWrapper {
+    width: 100%;
+}
+
+.messageTable {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1.5px solid black;
+}
+
+.messageTableRowHead,
+.messageTableData {
+    padding: 0.5rem;
+    border: 1px solid black;
+}
+
+.messageTableRowHead:nth-child(1),
+.messageTableRowHead:nth-child(4) {
+    width: 15%;
+}
+
+.messageTableRowHead:nth-child(3) {
+    width: 15%;
+    text-align: center;
+}
+
+.messageTableData:nth-child(1),
+.messageTableData:nth-child(4) {
+    text-align: center;
+}
+
+.messageTableData:nth-child(2) {
+    text-align: center;
+}
+
+.messageTableData:nth-child(3) {
+    width: 10%;
+    text-align: center;
+}
+
 .messageTableRowHead {
     font-size: 1rem;
+}
+
+.messageTableNoTopic {
+    margin-top: var(--heading-mb);
+    text-align: center;
 }

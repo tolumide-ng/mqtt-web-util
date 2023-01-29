@@ -1,8 +1,8 @@
 .select {
-    height: 1.5rem;
-    width: 100%;
+    height: var(--input-height);
     border: 1px solid grey;
     border-radius: 0.125rem;
-    margin-top: 0.2rem;
     padding: 0.25rem;
+    margin-bottom: var(--input-mb);
+    width: 100%;
 }

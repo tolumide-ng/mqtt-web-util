@@ -1,14 +1,15 @@
 import * as React from "react";
-import { Message } from "../../../../types";
+import { Message, Status } from "../../../../types";
 import styles from "./index.module.css";
 
 type MessagesProps = {
     messages: Array<Message>;
+    connectionStatus: Status;
 };
 
-export const Messages = ({ messages }: MessagesProps) => {
+export const Messages = ({ messages, connectionStatus }: MessagesProps) => {
     return (
-        <>
+        <div className={styles.messageTableWrapper}>
             <table className={styles.messageTable}>
                 <thead className={styles.messageTableHead}>
                     <tr className={styles.messageTableRow}>
@@ -42,9 +43,17 @@ export const Messages = ({ messages }: MessagesProps) => {
                     )}
                 </tbody>
             </table>
-            {!messages?.length ? (
-                <p>You do not have any messages at the moment</p>
+            {connectionStatus === Status.Success && !messages?.length ? (
+                <p className={styles.messageTableNoTopic}>
+                    You do not have any messages at the moment
+                </p>
             ) : null}
-        </>
+
+            {connectionStatus !== Status.Success ? (
+                <p className={styles.messageTableNoTopic}>
+                    Please connect to view available messages
+                </p>
+            ) : null}
+        </div>
     );
 };

@@ -88,6 +88,20 @@ export const Connection = ({
                 text={isConnected ? "Disconnect" : "Connect"}
                 className={styles.submitButton}
             />
+
+            {connectionStatus === Status.Failure ? (
+                <p className={styles.connectionError}>
+                    Error connecting to broker, please confirm your credentials
+                    and try again
+                </p>
+            ) : null}
+
+            {connectionStatus === Status.Rest ? (
+                <p className={styles.connectionHint}>
+                    You need to be connected in order to subscribe or publish
+                    messages
+                </p>
+            ) : null}
         </form>
     );
 };

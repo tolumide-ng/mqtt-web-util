@@ -8,6 +8,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
     <React.StrictMode>
-        <HomePage />
+        <div className={"appWrapper"}>
+            <HomePage />
+        </div>
     </React.StrictMode>,
 );
