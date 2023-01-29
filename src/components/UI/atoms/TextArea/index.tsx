@@ -9,6 +9,7 @@ type TextAreaProps = {
     rows?: number;
     className?: string;
     disabled?: boolean;
+    required?: boolean;
 };
 
 export const TextArea = ({
@@ -20,6 +21,7 @@ export const TextArea = ({
     rows = 10,
     className,
     disabled = false,
+    required = true,
 }: TextAreaProps) => {
     return (
         <textarea
@@ -31,6 +33,7 @@ export const TextArea = ({
             className={className}
             disabled={disabled}
             placeholder={placeholder}
+            required={required}
         ></textarea>
     );
 };

@@ -1,5 +1,6 @@
 import * as React from "react";
 import { ConnectProps, Status } from "../../../../types";
+import { Button } from "../../atoms/Button";
 import { Input } from "../../atoms/Input";
 import styles from "./index.module.css";
 
@@ -78,9 +79,15 @@ export const Connection = ({
                         value={state[name]}
                         inputClassName={className}
                         placeholder={placeholder}
+                        required={true}
                     />
                 ))}
             </div>
+
+            <Button
+                text={isConnected ? "Disconnect" : "Connect"}
+                className={styles.submitButton}
+            />
         </form>
     );
 };

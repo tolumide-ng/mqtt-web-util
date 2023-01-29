@@ -8,6 +8,7 @@ type ButtonProps = {
     onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
     type?: ButtonType;
     disabled?: boolean;
+    className?: string;
 };
 
 export const Button = ({
@@ -15,11 +16,12 @@ export const Button = ({
     onClick,
     type,
     disabled = false,
+    className,
 }: ButtonProps) => {
     return (
         <button
             onClick={onClick}
-            className={styles.button}
+            className={`${styles.button} ${className}`}
             type={type}
             disabled={disabled}
         >

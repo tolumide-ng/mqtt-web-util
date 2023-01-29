@@ -6,6 +6,7 @@ type SelectOptionProps = {
     options: Array<string | number>;
     name: string;
     value: string | number;
+    className?: string;
 };
 
 export const SelectOption = ({
@@ -13,11 +14,12 @@ export const SelectOption = ({
     options,
     name,
     value,
+    className,
 }: SelectOptionProps) => {
     return (
         <select
             name={name}
-            className={styles.select}
+            className={`${styles.select} ${className}`}
             onChange={onChange}
             aria-label={name}
         >

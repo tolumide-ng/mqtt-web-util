@@ -22,6 +22,3 @@
 .password {
     width: calc(calc(100% - 30px) / 2);
 }
-
-.connectionTitle {
-}
