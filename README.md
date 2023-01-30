@@ -46,7 +46,8 @@ Users can easily see information about whether they were able to connect success
 NB:
 
 -   You would only able to publish, subscribe or receive messages only after connecting to a broker instacne, and subscribing to a topic.
--   This application allows you to specify the Quality of Service (QoS) when subcribing to a topic
+-   This application allows you to specify the Quality of Service (QoS) when subcribing to a topic.
+-   You can signup on [HiveMQ](https://www.hivemq.com/mqtt-cloud-broker/) to create a free broker instance, which would then provide you with the `username`, `password` and `hostname` required to use this service.
 
 ## Running this application locally and testing
 
