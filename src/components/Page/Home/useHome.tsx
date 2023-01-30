@@ -21,7 +21,12 @@ export const useHome = () => {
 
     const onConnect = React.useCallback((props: ConnectProps) => {
         if (client.current?.status === Status.Success) {
-            client.current.close();
+            client.current.end();
+            setAppState({
+                messages: [],
+                connectionStatus: Status.Rest,
+                topics: [],
+            });
         } else {
             client.current = new MQTTClient({
                 ...props,
@@ -34,6 +39,10 @@ export const useHome = () => {
                 },
             });
         }
+
+        return () => {
+            client.current?.end();
+        };
     }, []);
 
     const onSubscribe = (topic: string, qos: QoS) => {

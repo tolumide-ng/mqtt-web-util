@@ -22,6 +22,10 @@ export const Connection = ({
 }: ConnectionProps) => {
     const isConnected = connectionStatus === Status.Success;
 
+    React.useEffect(() => {
+        setState({ hostname: "", username: "", password: "" });
+    }, [isConnected]);
+
     const [state, setState] = React.useState<ConnectProps>({
         hostname: "",
         username: "",
@@ -38,10 +42,11 @@ export const Connection = ({
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if (isConnected) {
-            setState({ hostname: "", username: "", password: "" });
-        }
+        // if (isConnected) {
+        //     setState({ hostname: "", username: "", password: "" });
+        // }
         onConnect(state);
+        // setState({ hostname: "", username: "", password: "" });
     };
 
     const options: Array<Option> = [
@@ -79,7 +84,7 @@ export const Connection = ({
                         value={state[name]}
                         inputClassName={className}
                         placeholder={placeholder}
-                        required={true}
+                        required={!isConnected}
                     />
                 ))}
             </div>

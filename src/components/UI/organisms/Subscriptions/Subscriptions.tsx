@@ -23,6 +23,13 @@ export const Subscriptions = ({
         qos: 0,
     });
 
+    React.useEffect(() => {
+        if (!isConnected) {
+            // reset the state when a user disconnects while typing
+            setState({ topic: "", qos: 0 });
+        }
+    }, [isConnected]);
+
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
     ) => {
@@ -72,7 +79,10 @@ export const Subscriptions = ({
 
             <div className={styles.subscriptionsContents}>
                 {topics.map(({ topic, qos }) => (
-                    <SubscribeRow name={`${topic}/${qos}`} key={topic} />
+                    <SubscribeRow
+                        name={`${topic}/${qos}`}
+                        key={`${topic}/${qos}`}
+                    />
                 ))}
             </div>
         </section>

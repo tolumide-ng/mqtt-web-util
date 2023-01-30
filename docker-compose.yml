@@ -18,7 +18,7 @@ services:
             context: ./
         environment:
             - CI=true
-        command: npm run test
+        command: npm test
 
 networks:
     webnet:

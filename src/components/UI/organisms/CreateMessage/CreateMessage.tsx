@@ -23,6 +23,13 @@ export const CreateMessage = ({
         messageId: null,
     });
 
+    React.useEffect(() => {
+        if (!isConnected) {
+            // reset the state when a user disconnects while typing
+            setState({ topic: "", qos: 0, message: "", messageId: null });
+        }
+    }, [isConnected]);
+
     const handleChange = (
         e: React.ChangeEvent<
             HTMLTextAreaElement | HTMLSelectElement | HTMLInputElement

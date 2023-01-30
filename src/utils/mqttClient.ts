@@ -1,9 +1,4 @@
-import mqtt, {
-    ISubscriptionGrant,
-    ISubscriptionMap,
-    MqttClient,
-    QoS,
-} from "precompiled-mqtt";
+import mqtt, { MqttClient, QoS } from "precompiled-mqtt";
 import {
     Message,
     MQTTClientProps,
@@ -13,7 +8,6 @@ import {
     UpdateTopic,
 } from "../types";
 
-// Facade pattern
 export class MQTTClient {
     client: MqttClient | null = null;
     #topics: Array<Topic> = [];
@@ -55,11 +49,6 @@ export class MQTTClient {
             update(Status.Success, this.#messages);
         });
 
-        this.client?.on("end", () => {
-            this.#connectionStatus = Status.Rest;
-            update(Status.Rest, []);
-        });
-
         this.client?.on("message", (topic, payload, packet) => {
             this.#messages.push({
                 topic,
@@ -72,6 +61,16 @@ export class MQTTClient {
         });
 
         this.client?.on("error", () => {
+            this.#connectionStatus = Status.Failure;
+            update(Status.Failure, []);
+        });
+
+        this.client?.on("end", () => {
+            this.#connectionStatus = Status.Rest;
+            update(Status.Rest, []);
+        });
+
+        this.client?.on("close", () => {
             this.#connectionStatus = Status.Failure;
             update(Status.Failure, []);
         });
@@ -91,7 +90,7 @@ export class MQTTClient {
         });
     }
 
-    close() {
+    end() {
         this.client?.end(true, undefined, () => {});
     }
 }
