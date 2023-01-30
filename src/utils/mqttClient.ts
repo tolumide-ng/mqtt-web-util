@@ -3,9 +3,9 @@ import {
     Message,
     MQTTClientProps,
     Status,
+    SubscribeProps,
     Topic,
     UpdateHandle,
-    UpdateTopic,
 } from "../types";
 
 export class MQTTClient {
@@ -20,6 +20,7 @@ export class MQTTClient {
         hostname,
         updateHandle,
     }: MQTTClientProps) {
+        updateHandle(Status.Loading, this.#messages);
         this.client = mqtt.connect({
             clientId: "mqttjs_" + Math.random().toString(16).substring(2, 10),
             protocol: "wss",
@@ -35,7 +36,6 @@ export class MQTTClient {
             password,
         });
 
-        updateHandle(Status.Loading, this.#messages);
         this.#activateListeners(updateHandle);
     }
 
@@ -80,12 +80,12 @@ export class MQTTClient {
         this.client?.publish(topic, message, { qos });
     }
 
-    subscribe(topic: string, qos: QoS, update: UpdateTopic) {
+    subscribe({ topic, qos, cb }: SubscribeProps) {
         this.#topics.push({ topic, qos });
 
         this.client?.subscribe({ [topic]: { qos } }, (err) => {
             if (!err) {
-                update(this.#topics);
+                cb(this.#topics);
             }
         });
     }

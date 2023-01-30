@@ -49,10 +49,14 @@ export const Messages = ({ messages, connectionStatus }: MessagesProps) => {
                 </p>
             ) : null}
 
-            {connectionStatus !== Status.Success ? (
+            {![Status.Success, Status.Loading].includes(connectionStatus) ? (
                 <p className={styles.messageTableNoTopic}>
                     Please connect to view available messages
                 </p>
+            ) : null}
+
+            {connectionStatus === Status.Loading ? (
+                <p className={styles.messageTableNoTopic}>Loading</p>
             ) : null}
         </div>
     );

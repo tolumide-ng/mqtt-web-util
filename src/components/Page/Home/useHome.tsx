@@ -54,8 +54,12 @@ export const useHome = () => {
             return;
         }
 
-        client.current?.subscribe(topic, qos, (topics) => {
-            setAppState((state) => ({ ...state, topics }));
+        client.current?.subscribe({
+            topic,
+            qos,
+            cb: (topics) => {
+                setAppState((state) => ({ ...state, topics }));
+            },
         });
     };
 

@@ -42,11 +42,7 @@ export const Connection = ({
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // if (isConnected) {
-        //     setState({ hostname: "", username: "", password: "" });
-        // }
         onConnect(state);
-        // setState({ hostname: "", username: "", password: "" });
     };
 
     const options: Array<Option> = [

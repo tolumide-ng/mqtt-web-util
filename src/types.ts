@@ -26,4 +26,10 @@ export type UpdateTopic = (topics: Array<ISubscriptionGrant>) => void;
 
 export type UpdateHandle = (status: Status, messages: Array<Message>) => void;
 
+export type SubscribeProps = {
+    topic: string;
+    qos: QoS;
+    cb: UpdateTopic;
+};
+
 export type MQTTClientProps = ConnectProps & { updateHandle: UpdateHandle };
