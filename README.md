@@ -14,6 +14,7 @@
         -   [Start the Application locally](#using-npm-start-the-application-locally)
         -   [Shutdown the Application](#using-npm-shutdown-the-application)
     -   [TroubleShooting](#troubleshooting)
+    -   [Recording](#recording)
 
 # About this Project
 
@@ -159,3 +160,7 @@ Solution:
 
 -   Run `rm -rf node_modules` in the repository and then `npm install` again
     Why did that happen?: Well, it's possible that you had ran `docker-compose web` earlier
+
+## Recording
+
+https://user-images.githubusercontent.com/35481645/215463383-8526e5ed-e071-46d2-864e-02353a335652.mp4
